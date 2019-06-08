@@ -2,4 +2,4 @@
 Mémoire de Master MIAGE M2
 
 
-Générer la meilleur équipe Pokémon pour les VGC
+Générer la meilleure équipe Pokémon pour les VGC 2019

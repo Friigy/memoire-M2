@@ -2,8 +2,6 @@
 
 \chapter{Analyse des solutions existantes}
 
-\section{Deep Blue}
-
 \section{AlphaGo}
 
 AlphaGo est un programme informatique capable de jouer au jeu de Go\footnote{jeu de stratégie au tour par tour traditionnellement chinois}. En octobre 2015, il devient le premier programme à battre le joueur professionnel français Fen Hui, en mars 2016, il bat l'un des meilleurs joueurs mondiales Lee Sedol et enfin, en mai 2017 il bat le champion du monde, Ke Jie, avant d'être mis à la retraite.
@@ -14,28 +12,61 @@ En octobre 2017, son algorithme est amélioré dans la version AlphaGo Zero qui 
 
 Les premières versions d'AlphaGo ont été réalisé avec l'utilisation de la méthode de Monte-Carlo, guidé par un réseau de valeur et un réseau d'objectifs, implémentés en utilisant un réseau de neuronne profond. Il a été entraîné pour imiter le joueur humain, en retrouvant la réponse aux coups dans toutes les parties qu'il a enregistrés. Passé un certain niveau, il s'est entraîné contre lui-même utilisant l'apprentissage par renforcement pour s'améliorer.
 
-En revanche, dans une nouvelle étude, par Nature, DeepMind révèle que la version AlphaGo Zero utilise une architecture plus simple, n'utilise plus la méthode de Monte Carlo, ni de connaissances humaines mais parvient tout de même à atteindre un meilleur niveau que ses versions précédentes.
+En revanche, dans une nouvelle étude, par Nature, DeepMind révèle que la version AlphaGo Zero utilise une architecture plus simple, n'utilise plus la méthode de Monte-Carlo, ni de connaissances humaines mais parvient tout de même à atteindre un meilleur niveau que ses versions précédentes.
 
-\section{La méthode de Monte Carlo}
+\subsection{La méthode de Monte-Carlo}
 
-Blabla\footnote{https://www.chemie.unibas.ch/\~meuwly/download/ulam.mc.pdf}
+La méthode de recherche arborescente Monte-Carlo désigne une famille de méthode algorithmiques visant à calculer une valeur numérique approchée en utilisant des procédés aléatoires. Elle est fréquemment utilisé dans les jeux tel que Total War : Rome II, ou dans notre cas les échecs et le go.
 
-La méthode de recherche arborescente Monte Carlo désigne une famille de méthode algorithmiques visant à calculer une valeur numérique approchée en utilisant des procédés aléatoires. Elle est fréquemment utilisé dans les jeux tel que Total War : Rome II, ou dans notre cas les échecs et le go.
+La méthode Monte-Carlo explore l'arbre des possibles. À la racine de l'arbre se trouve la configuration initiale du jeu. Chaque nœud est une nouvelle configuration et ses enfants sont les configurations suivantes. Monte-Carlo conserve en mémoire un arbre qui correspond aux noeuds déjà explorés de l'arbre des possibles. Une feuille de cet arbre est soit une configuration finale (si l'un des joueurs a gagné ou s'il y a match nul), soit une configuration à partir de laquelle aucune simulation n'a encore été lancée. Dans chaque nœud, on stocke deux nombres : le nombre de simulations gagnantes et le nombre total de simulations. La méthode Monte-Carlo se déroule en quatre étapes :
 
-La méthode Monte Carlo explore l'arbre des possibles. À la racine de l'arbre se trouve la configuration initiale du jeu. Chaque nœud est une nouvelle configuration et ses enfants sont les configurations suivantes. Monte Carlo conserve en mémoire un arbre qui correspond aux noeuds déjà explorés de l'arbre des possibles. Une feuille de cet arbre est soit une configuration finale (si l'un des joueurs a gagné ou s'il y a match nul), soit une configuration à partir de laquelle aucune simulation n'a encore été lancée. Dans chaque nœud, on stocke deux nombres : le nombre de simulations gagnantes et le nombre total de simulations. Chaque étape est composée de quatre phases.
+\begin{itemize}
 
-Sélection : depuis la racine, on sélectionne successivement des enfants jusqu'à atteindre une feuille. Dans cette phase, le choix des enfants est guidé par un compromis entre exploitation (aller vers un enfant qui a été prouvé comme prometteur) et exploration (aller visiter un autre enfant, qui a l'air moins prometteur mais qui pourrait l'être davantage). Dans l'exemple donné dans la figure, on choisit la feuille de droite (de profondeur 3).
+    \item Sélection :
+    
+    depuis la racine, on sélectionne successivement des enfants jusqu'à atteindre la fin de l'arbre. Dans cette phase, le choix des enfants est guidé par un compromis entre exploitation (choisir un noeud prouvé comme étant prometteur) et exploration (choisir un noeud moins prometteur en apparence afin de découvrir de nouvelles configurations qui peuvent se révéler être intéressant).
+    
+    \item Expansion :
+    
+    si cette configuration n'est pas finale, créer de nouveaux enfants à mesure du possible en utilisant les règles du jeu et choisir l'un des enfants.
+    
+    \item Simulation :
+    
+    simuler une partie au hasard depuis cet enfant, jusqu'à atteindre une configuration finale.
+    
+    \item Rétro-propagation :
+    
+    utiliser le résultat de la partie au hasard et mettre à jour les informations de manière rétro-active sur la branche en partant du noeud enfant jusqu'à la racine.
+    
+\end{itemize}
 
-Expansion : si cette feuille n'est pas finale, créer un enfant (ou plusieurs) en utilisant les règles du jeu et choisir l'un des enfants. Sur l'exemple, on ajoute cet enfant, marqué 0/0.
+Dans AlphaGo, Monte-Carlo s'aidait d'un réseau de neurones entraîné par des parties d'experts ainsi que du renforcement en se combattant lui-même. Seulement, ce dispositif était limité de par le fait que les données d'experts sont souvent rares et surtout, elles sont onéreuses. Dans la version Zero, il se débarrasse de la méthode de recherche arborescente Monte-Carlo pour un autre algorithme de recherche arborescente qui va s'abstraire de toutes connaissances, comme des parties étudiées, sauf les règles du jeu.
 
-Simulation : simuler une exécution d'une partie au hasard depuis cet enfant, jusqu'à atteindre une configuration finale.
+\subsection{Zero}
 
-Rétro-propagation : utiliser le résultat de la partie au hasard et mettre à jour les informations sur la branche en partant du noeud enfant vers la racine. Sur l'exemple, la partie était perdante. On incrémente donc uniquement le nombre de simulations totales sur la branche : 0/0 devient 0/1, 3/3 devient 3/4, 5/6 devient 5/7, 7/10 devient 7/11, et 12/21 devient 12/22. Si la partie avait été gagnante :0/0 serait devenu 1/1, 3/3 serait devenu 4/4, 5/6 serait devenu 6/7, 7/10 serait devenu 8/11, et 12/21 serait devenu 13/22.
+AlphaZero sera la version finale de AlphaGo. Débarrassé de la complexité de la recherche arborescente de Monte-Carlo et du réseau de neurones qui lui sert à étudier les parties d'experts, AlphaZero devient plus léger et plus généraliste dans sa façon d'apprendre.
 
-pourquoi c'est cool
+La version AlphaGo Zero se base uniquement sur des parties jouées contre elle-même en utilisant un réseau de neurones qui concentre en un seul les deux réseaux de valeurs et d'objectifs qu'utilisait AlphaGo. De plus, elle utilise un nouvel algorithme d'apprentissage où elle apprend de ses propres mouvements, jusqu'à ce qu'elle puisse les anticiper et calculer de ces mouvements et leur impact sur le jeu. Cette version ne se sert plus de parties jouées par des experts, ni de l'aide humaine.
 
-pourquoi c'est pas si cool
+La version d'AlphaZero reprend tout ces principes à quelques différences près :
+
+\begin{itemize}
+    \item AlphaZero a des règles codés en dur pour l'algorithme de recherche
+    \item Le réseau de neurones est mis à jour de manière constante
+    \item AlphaZero n'est pas programmé pour prendre avantage de la symétrie présente dans le Go
+    \item AlphaZero prend en compte les matchs nuls
+\end{itemize}
 
 https://fr.wikipedia.org/wiki/Recherche_arborescente_Monte-Carlo
+
 https://www.nature.com/articles/nature16961
+
+https://www.nature.com/articles/nature24270
+
 http://aigamedev.com/open/coverage/mcts-rome-ii/
+
+\section{L'intelligence artificielle de manière plus général}
+
+
+
+https://www.univ-rennes1.fr/actualites/04042018/elisa-fromont-et-les-defis-de-lintelligence-artificielle
