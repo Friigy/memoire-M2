@@ -22,7 +22,7 @@
 \usepackage{xcolor}
 \usepackage{sectsty}
 \usepackage[Lenny]{fncychap}
-\usepackage[backend=bibtex,sorting=none]{biblatex}
+\usepackage[backend=biber,style=numeric,]{biblatex}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHIE
@@ -195,15 +195,18 @@ Le pouvoir de l'amitié qui triomphe toujours
 %	BIBLIOGRAPHIE
 %----------------------------------------------------------------------------------------
 
-\printbibliography[heading=bibintoc]
+\printbibliography
+
 \newpage
 
 %----------------------------------------------------------------------------------------
-%	TABLE DES MATIERES
+%	TABLE DES MATIÈRES
 %----------------------------------------------------------------------------------------
 
 \tableofcontents
 
 \listoffigures
+
+\listoftables
 
 \end{document}

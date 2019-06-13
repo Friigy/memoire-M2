@@ -111,70 +111,100 @@ Il existe 25 natures différentes dont 5 qui sont neutres. Par raison de visibil
 
 Tableau des natures d'attaque :
 
-\begin{tabular}{c c c c c c}
-    \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
-    \hline
-    Brave & +10\% & - & - & - & -10\%\\
-    Mauvais & +10\% & - & - & -10\% & -\\
-    Rigide & +10\% & - & -10\% & - & -\\
-    Solo & +10\% & -10\% & - & - & -\\
-\end{tabular}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
+        \hline
+        Brave & +10\% & - & - & - & -10\%\\
+        Mauvais & +10\% & - & - & -10\% & -\\
+        Rigide & +10\% & - & -10\% & - & -\\
+        Solo & +10\% & -10\% & - & - & -\\
+    \end{tabular}
+    \caption{Table des talents de bonus d'attaque}
+    \label{tab:my_label}
+\end{table}
 
 Tableau des natures de défense :
-
-\begin{tabular}{c c c c c c}
-    \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
-    \hline
-    Assuré & -10\% & +10\% & - & - & -\\
-    Lâche & - & +10\% & - & -10\% & -\\
-    Malin & - & +10\% & -10\% & - & -\\
-    Relax & - & +10\% & - & - & -10\% \\
-\end{tabular}
+    
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
+        \hline
+        Assuré & -10\% & +10\% & - & - & -\\
+        Lâche & - & +10\% & - & -10\% & -\\
+        Malin & - & +10\% & -10\% & - & -\\
+        Relax & - & +10\% & - & - & -10\% \\
+    \end{tabular}
+    \caption{Table des talents de bonus de défense}
+    \label{tab:my_label}
+\end{table}
 
 Tableau des natures d'attaque spéciale :
-
-\begin{tabular}{c c c c c c}
-    \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
-    \hline
-    Discret & - & - & +10\% & - & -10\%\\
-    Doux & - & -10\% & +10\% & - & -\\
-    Foufou & - & - & +10\% & -10\% & -\\
-    Modeste & -10\% & - & +10\% & - & -\\
-\end{tabular}
+    
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
+        \hline
+        Discret & - & - & +10\% & - & -10\%\\
+        Doux & - & -10\% & +10\% & - & -\\
+        Foufou & - & - & +10\% & -10\% & -\\
+        Modeste & -10\% & - & +10\% & - & -\\
+    \end{tabular}
+    \caption{Table des talents de bonus d'attaque spéciale}
+    \label{tab:my_label}
+\end{table}
 
 Tableau des natures de défense spéciale :
-
-\begin{tabular}{c c c c c c}
-    \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
-    \hline
-    Calme & -10\% & - & - & +10\% & -\\
-    Gentil & - & -10\% & - & +10\% & -\\
-    Malpoli & - & - & - & +10\% & -10\%\\
-    Prudent & - & - & -10\% & +10\% & -\\
-\end{tabular}
+    
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
+        \hline
+        Calme & -10\% & - & - & +10\% & -\\
+        Gentil & - & -10\% & - & +10\% & -\\
+        Malpoli & - & - & - & +10\% & -10\%\\
+        Prudent & - & - & -10\% & +10\% & -\\
+    \end{tabular}
+    \caption{Table des talents de bonus de défense spéciale}
+    \label{tab:my_label}
+\end{table}
 
 Tableau des natures de vitesse :
-
-\begin{tabular}{c c c c c c}
-    \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
-    \hline
-    Jovial & - & - & -10\% & - & +10\%\\
-    Naïf & - & - & - & -10\% & +10\%\\
-    Pressé & - & -10\% & - & - & +10\%\\
-    Timide & -10\% & - & - & - & +10\%\\
-\end{tabular}
+    
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
+        \hline
+        Jovial & - & - & -10\% & - & +10\%\\
+        Naïf & - & - & - & -10\% & +10\%\\
+        Pressé & - & -10\% & - & - & +10\%\\
+        Timide & -10\% & - & - & - & +10\%\\
+    \end{tabular}
+    \caption{Table des talents de bonus de vitesse}
+    \label{tab:my_label}
+\end{table}
 
 Tableau des natures neutre :
-
-\begin{tabular}{c c c c c c}
-    \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
-    \hline
-    Bizarre & - & - & - & - & -\\
-    Docile & - & - & - & - & -\\
-    Hardi & - & - & - & - & -\\
-    Pudique & - & - & - & - & -\\
-    Sérieux & - & - & - & - & -\\
-\end{tabular}
+    
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c c c c c c}
+        \textbf{Nature} & \textbf{Attaque} & \textbf{Défense} & \textbf{Attaque Spéciale} & \textbf{Défense Spéciale} & \textbf{Vitesse}\\
+        \hline
+        Bizarre & - & - & - & - & -\\
+        Docile & - & - & - & - & -\\
+        Hardi & - & - & - & - & -\\
+        Pudique & - & - & - & - & -\\
+        Sérieux & - & - & - & - & -\\
+    \end{tabular}
+    \caption{Table des talents neutre}
+    \label{tab:my_label}
+\end{table}
 
 \subsubsection{Le talent du Pokémon}
 
@@ -499,7 +529,7 @@ Les objets sont utilisables de deux manières : par activation ou en étant port
 
 \section{Format VGC}
 
-Le tournoi des VGC Pokémon 2019 s'organise de la manière suivante : la première saison se déroule de septembre à décembre, la deuxième de janvier à mars et la dernière saison se déroule d'avril jusqu'aux Worlds. Le long de ses saisons le joueurs accumulent des points pour participer aux Worlds qui se déroule en août.
+Le tournoi des VGC Pokémon 2019 s'organise de la manière suivante\cite{POKECHAMP} : la première saison se déroule de septembre à décembre, la deuxième de janvier à mars et la dernière saison se déroule d'avril jusqu'aux Worlds. Le long de ses saisons le joueurs accumulent des points pour participer aux Worlds qui se déroule en août.
 
 Les VGC 2019 ont commencé le 4 septembre 2018. La première saison s'est terminé le 7 janvier 2019. La deuxième saison a commencé le 8 janvier et s'est terminé le 1 avril 2019. La dernière saison a commencé le 2 avril 2019 et se terminera en aout 2019 avec les Championnats du Monde.
 
@@ -579,7 +609,7 @@ Pour l'année 2019, le format est différent des années précédentes puisque c
         
         \item la Gemme Bleue et la Gemme Rouge sont interdites
         
-        \item Rayquza n'a pas le droit de connaître la capacité Draco Ascension
+        \item Rayquaza n'a pas le droit de connaître la capacité Draco Ascension
         
     \end{enumerate}
     
@@ -593,7 +623,7 @@ Pour l'année 2019, le format est différent des années précédentes puisque c
         
         \item la Gemme Bleue et la Gemme Rouge sont interdites
         
-        \item Rayquza n'a pas le droit de connaître la capacité Draco Ascension
+        \item Rayquaza n'a pas le droit de connaître la capacité Draco Ascension
         
     \end{enumerate}
     
@@ -606,6 +636,4 @@ Pour l'année 2019, le format est différent des années précédentes puisque c
     \end{enumerate}
     
 \end{itemize}
-    
-http://www.ultigame.fr/championnats-du-monde-pokemon-2019-le-reglement-vgc-a-ete-officialise/
     
