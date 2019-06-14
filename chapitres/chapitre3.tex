@@ -2,6 +2,103 @@
 
 \chapter{Générer une équipe de Pokémon optimale pour les VGC 2019}
 
+Avant de s'atteler à la résolution d'un combat, il faut déterminer une ou plusieurs équipes avec lesquelles nous participerons. Cette sélection est contraint aux règles en vigueur qui change aux cours des saisons, ce qui signifie qu'une équipe admise durant la première saison ne sera pas nécessairement admise à la seconde. De plus, pour des raisons de stratégie, il est intéressant de changer d'équipe entre chaque saison, voire même à chaque opportunité présentée afin de pas laisser les adversaires s'adapter à notre solution. La force de notre solution ne réside pas dans sa capacité à répondre à tout, mais dans notre capacité à générer un maximum d'équipes acceptables et optimisées.
+
+\section{Liste des Pokémon sélectionnables}
+
+Ici, nous allons donc discuter des critères qui vont nous aider à produire une équipe de Pokémon.
+
+\subsection{Les caractéristiques que l'on va utiliser dans la sélection}
+
+Une équipe Pokémon pour les VGC 2019 se compose de six Pokémon n'appartenant pas à la liste des Pokémon non-autorisés lors des combats officielles. Pour cela nous allons dresser un tableau des Pokémon acceptés comprenant les statistiques qui vont nous intéresser ainsi que les traits qui pourrait potentiellement entrer en jeu durant notre sélection.
+
+Pour tout Pokémon, nous avons à l'avance déterminer que les formes différentes qu'un Pokémon peut avoir ne peut être changé en combat (sauf exception). Nous allons donc, pour chaque forme, les considérer comme un Pokémon à part entière.
+
+Pour chaque Pokémon, nous allons dresser une série de données qui le compose sans prendre en compte les changements qui peuvent affecter le Pokémon. Dans la série VGC, chaque Pokémon sera niveau 50, cela nous permet donc de nous intéresser aux statistiques qu'un Pokémon possèdent à un seul état de sa progression. Les caractéristiques et les statistiques qui nous intéressent donc dans cette partie sont :
+
+\begin{itemize}
+    
+    \item Les points de vie
+    
+    \item L'Attaque
+    
+    \item La Défense
+    
+    \item L'Attaque Spéciale
+    
+    \item La Défense Spéciale
+    
+    \item La Vitesse
+    
+    \item Les types
+    
+\end{itemize}
+
+On peut ignorer le reste lors de la sélection car il s'agit de variables qui nous permettent de modifier le Pokémon à notre guise ou à notre insu.
+
+\subsection{Déterminer les dominants}
+
+Un joueur va ensuite regarder les dominances d'un Pokémon lorsqu'il fait son choix. La dominance d'un Pokémon est lorsque l'une de ses statistiques (Attaque, Défense, etc...) est plus haute que le reste des Pokémon. Nous allons donc déterminer dans cette ordre les dominances naturels (toutes les statistiques dominent le reste du Pokédex), dominance par trois statistiques, puis par deux et enfin par une. Il est en général plus courant pour un joueur en tournoi de ne se concentrer que sur deux des statistiques d'un Pokémon.
+
+Cette multiple détermination de dominance nous permettra par la suite d'évaluer des profiles types de Pokémon. Un dominant naturel sera bien évidemment à favoriser, cependant les VGC se déroulent dans un format de combat en deux contre deux. Dans cette optique, il est important de prendre en compte une stratégie de synergie où les Pokémon peuvent aussi s'aider l'un l'autre. C'est pour cette raison qu'il est important, à partir de cette détermination de dominants au travers des statistiques naturelles d'un Pokémon, d'ensuite déterminer des profiles à associer aux Pokémon.
+
+\subsection{Déterminer les profiles}
+
+Comme dans tous jeux où une équipe affronte un autre groupe de joueurs ou de monstres, il est important de développer une stratégie afin que chaque rôles puissent jouer de leurs avantages en combat.
+
+Nous retrouvons quatre profiles types dans dans ces situations, qui agit comme un modèle universelle :
+
+\begin{itemize}
+    
+    \item Le DPS
+    
+    DPS provient des mots "Damage Per Second" qui traduit en français nous donne "Dommage Par Seconde". Ce rôle a pour but d'infliger un maximum de dégâts à ses adversaires. Les statistiques qui l'intéresseront seront souvent celle qui ont un lien direct avec la puissance de ses attaques. De même, son éventail de capacités s'orientera sur des attaques, ou sur des capacités qui vont infliger des dégâts à ses adversaires.
+    
+    \item Le Tank
+    
+    Le Tank agit comme le gardien de son équipe. Il redirige les dégâts vers lui-même et fais en sorte de minimiser les dégâts qu'il subit. Le Tank cherchera à augmenter ses points de vie ainsi que toutes statistiques qui lui permettront d'éviter ou de réduire les dégâts en approche. Les capacités qu'il essayera d'acquérir auront sauver pour but de le protéger lui et ses compagnons.
+    
+    \item Le Support
+    
+    Le Support a pour rôle de renforcer son équipe. Il a plusieurs moyens selon les jeux dans lequel il intervient d'agir pour le bien de son équipe. Il peut soigner ses alliés, les renforcer ou augmenter leurs statistiques à l'aide de ses capacités ou même leur offrir un avantage indirecte en agissant comme un scout.
+    
+    \item L'Hybride
+    
+    Un Hybride n'a pas de rôle défini à proprement parler. L'Hybride peut être une partie de chacun des rôles présenté ci-dessus, et même être tout les rôles ci-dessus. Il paye de leur polyvalence dans le fait qu'ils ne peuvent pas accomplir les différents rôles qu'ils peuvent prendre aussi bien que les non-Hybride.
+    
+\end{itemize}
+
+Dans une équipe Pokémon, nous allons retrouver ses concepts avec des Pokémon qui vont se supporter l'un l'autre, en choisissant un Pokémon Tank pour protéger un Pokémon DPS par exemple.
+
+Nous allons déterminer ses profiles à partir de leur dominance. Un Pokémon ayant beaucoup d'Attaque et de Défense est plus sensible à un Pokémon qui utilise des attaques spéciales. Néanmoins, il sera aussi un Pokémon qui se concentra sur des capacités physiques. On cherchera donc à optimiser son côté attaquant à l'aide des natures, des talents, des IVs et des EVs.
+
+Dans cette étape, nous attribuons donc un rôle à ce Pokémon et choisissons les priorités à déterminer lors de sélection des capacités ainsi que des objets. Lors de la sélection des capacités et des objets, nous ignorons la sélection de ceux interdit par les règles.
+
+\subsection{Une équipe optimisée}
+
+Une fois les profiles déterminés, nous pouvons passer au "draft", au tirage des Pokémon, et former des équipes optimisées. Il reste cependant un point à déterminer, et c'est la répartition des types. Il est important d'avoir une bonne répartition des types afin de pouvoir ignorer une grande partie des dégâts qui pourraient approcher deux Pokémon en combat. Dans notre sélection, nous allons donc virer sur une répartition des types équilibrés, en tirant des Pokémon qui comblent le maximum de type. Il n'est pas intéressant d'essayer de créer des équipes spécialisées avec quelques types, puisque l'équipe adverse n'a besoin que de remplir les conditions d'avoir des capacités offensives de types qui infligeront le maximum de dégâts.
+
+Il reste encore des contraintes dans la sélection qui veut que l'on ne peut pas avoir plus de deux légendaires de même nom ou deux Pokémon à la même espèce.
+
+\section{Mise en application}
+
+\subsection{Description des étapes déterminés}
+
+\subsubsection{Récupération des données}
+
+\subsubsection{Les dominants}
+
+\subsubsection{Les profiles}
+
+\subsection{Résultats de la sélection}
+
+--------- truc à dire sur les résultats lul ---------
+
+L'important à retenir de cette partie, c'est que la mise en application ne dépend que des règles imposées par les VGC qui changent chaque année, ainsi que la cohérence des données. L'automatisation de la sélection des équipes permettra à l'avenir de n'avoir qu'à adapter les tableaux de données pour qu'elle soit de nouveau cohérente et d'adapter les règles en vigueur.
+
+
+-----------------------------------------------------
+
 Pour la sélection, tant que j'ai l'idée lul :
 
 Définir la pool de Pokémon autorisé sans les changments de stats (talents, natures, ivs et ev)
@@ -11,17 +108,3 @@ Déterminer les dominants naturel, puis par statistiques (triplet, double et sta
 Déterminer les profiles pokémons (capacités, talents, objets (peut être?)) selon leur dominance statistiques les IVs, EVs et talents qu'ils faut cibler
 
 Générer les équipes par une selection arborescente des types, des profiles et des contraintes imposés par les règles du tournoi (Pas plus de deux légendaires etc...)
-
-\section{Liste des Pokémon sélectionnable}
-
-\subsection{Les caractéristiques que l'on va utiliser dans la sélection}
-
-\subsection{Déterminer les dominants}
-
-\subsection{Déterminer les dominants}
-
-\section{La partie info ouesh}
-
-\subsection{Kezakomment on fait messire}
-
-\subsection{Résultats de la sélection}
