@@ -6,54 +6,55 @@ Dans ce chapitre, nous avons nos équipes de prêtes, il ne reste plus qu'à les
 
 \section{Mise en Application}
 
-En suivant la méthode de recherche arborescente de Monte Carlo, nous pourrions développer l'intelligence artificielle qui viendra se confronter aux autres joueurs en circulation. Pour l'appliquer dans notre situation nous avons besoin de définir ce qui compose un combat Pokémon et le traduire dans les spécifications de l'algorithme.
+En suivant la méthode de recherche arborescente de Monte Carlo, nous pourrions développer l'intelligence artificielle qui viendra se confronter aux autres joueurs en circulation. Pour l'appliquer dans notre situation, nous avons besoin de définir ce qui compose un combat Pokémon et le traduire dans les spécifications de l'algorithme.
 
 \subsection{Définir la configuration initiale}
 
-Un combat Pokémon suivant les règles VGC commencera toujours avec les deux premiers Pokémon de chaque équipe sur le terrain. Tout les Pokémon auront leurs statistiques inchangés par des augmentations ou des réductions de statistiques. Tout les Pokémon auront leur points de vie au maximum. Toutes les capacités des Pokémon auront les points de pouvoir au maximum. Tous les objets à usage unique que les Pokémon porteront ne seront pas utilisés.
+Un combat Pokémon suivant les règles VGC commencera toujours avec les deux premiers Pokémon de chaque équipe sur le terrain. Tous les Pokémon auront leurs statistiques inchangées par des augmentations ou des réductions de statistiques. Tous les Pokémon auront leurs points de vie au maximum. Toutes les capacités des Pokémon auront les points de pouvoir au maximum. Tous les objets à usage unique que les Pokémon porteront ne seront pas utilisés.
 
 On considère que la configuration initiale en combat sera les deux équipes Pokémon en début de combat.
 
 \subsection{L'apprentissage par renforcement}
 
-Au vu du nombre de possibilités et des changements venant avec chaque saison, il est rare de trouver des données ou des observations qui viendront servir de base à notre IA. On peut aussi ignorer l'apprentissage non-supervisé pour la première raison.
+Au vu du nombre de possibilités et des changements venant avec chaque saison, il est rare de trouver des données ou des observations qui viendront servir de base à notre IA. On peut aussi ignorer l'apprentissage non supervisé pour la première raison.
 
-On peut cependant utiliser l'apprentissage par renforcement pour entraîner notre IA pour un combat. L'apprentissage par renforcement étant guidé par la valeur d'une action ainsi que de la valeur d'un objectif, on peut guider l'IA au travers de deux critères de choix : gagner la partie.
+On peut cependant utiliser l'apprentissage par renforcement pour entrainer notre IA pour un combat. L'apprentissage par renforcement étant guidé par la valeur d'une action ainsi que de la valeur d'un objectif, on peut guider l'IA au travers de deux critères de choix : gagner la partie.
 
-Le but le plus important d'un combat Pokémon est de le gagner, et il est possible de le faire via un éventail d'action plutôt important : utiliser l'une des quatre capacités du Pokémon, et par conséquent choisir les cibles de cette capacité si il y en a, ou changer un Pokémon pour un autre en combat. Gagner est donc l'objectif principale.
+Le but le plus important d'un combat Pokémon est de le gagner, et il est possible de le faire via un éventail d'action plutôt important : utiliser l'une des quatre capacités du Pokémon, et par conséquent choisir les cibles de cette capacité s’il y en a, ou changer un Pokémon pour un autre en combat. Gagner est donc l'objectif principal.
 
-On peut à partir de là supputer que chaque action que l'IA prendra et l'amèneront à gagner la partie sera évaluer de tel sorte à ce que le choix des actions en combat soit le plus efficient.
+On peut, à partir de là, supputer que chaque action que l'IA prendra et l'amèneront à gagner la partie sera évaluer de telles sortes à ce que le choix des actions en combat soit le plus efficient.
 
 \section{Une IA trop complexe}
 
 Bien qu'il semblerait possible de réaliser cette IA, il existe beaucoup d'autres problèmes auxquels il faut répondre avant de pouvoir l'utiliser.
 
-\subsection{Problème matérielle}
+\subsection{Problème matériel}
 
-Nous rencontrons tout d'abord un problème matériel. La dernière version d'AlphaGo, AlphaGo Zero, travaillait en faisant travailler 64 processeurs graphiques (GPU) ainsi que 19 processeurs (CPU) dont quatre utilisés pour l'apprentissage automatique. Pour ce système seulement, le coût matérielle a été estimé à 25 millions de dollars américains.
+Nous rencontrons tout d'abord un problème matériel. La dernière version d'AlphaGo, AlphaGo Zero, travaillait en faisant travailler 64 processeurs graphiques (GPU) ainsi que 19 processeurs (CPU) dont quatre utilisés pour l'apprentissage automatique. Pour ce système seulement, le cout matériel a été estimé à 25 millions de dollars américains.
 
 Les versions précédentes ont utilisé plus de ressources que celles d'AlphaGo Zero, la version d'AlphaGo qui a battu Fan Hui aurait utilisé au moins 176 GPU.
 
-\subsection{Pas d'entraînement}
+\subsection{Pas d'entrainement}
 
-Les configurations initiales vont varier à chaque combat sur la base même que les équipes seront différentes. Les tournois se réalisent très souvent sur deux jours et les joueurs ne connaissent rien d'entre eux avant d'arriver. Dans une situation optimale, nous pourrions entraîner l'IA les jours précédents la compétition en utilisant les informations des équipes que les joueurs vont utilisés cependant il est incertain de savoir combien cela prendrait en vue du nombres de possibilités en combat. Il a fallu 40 heures à AlphaZero pour battre sa dernière version, en ayant qu'une seule configuration initiale. Dans notre cas, le champ des possibles est plus léger, mais indéterminable, et la configuration initiale est rarement unique.
+Les configurations initiales vont varier à chaque combat sur la base même que les équipes rencontrées seront différentes. Les tournois se réalisent très souvent sur deux jours et les joueurs ne connaissent rien d'entre eux avant d'arriver. Dans une situation optimale, nous pourrions entrainer l'IA les jours précédents la compétition en utilisant les informations des équipes que les joueurs vont utilisés cependant il est incertain de savoir combien de temps cela prendrait en vue du nombre de possibilités en combat. Il a fallu 40 heures à AlphaZero pour battre sa dernière version, en ayant qu'une seule configuration initiale. Dans notre cas, le champ des possibles est plus léger, mais indéterminable, et la configuration initiale est rarement unique.
 
 \subsection{Problème trop complexe}
 
-Pour en revenir au champ des possibles, le problème d'un combat Pokémon est beaucoup trop complexe. Le nombre de possibilités accroît sur plusieurs niveaux, choisir l'action entre utiliser une capacité ou changer de Pokémon, choisir la capacité puis choisir sa cible, et choisir le Pokémon qui viendra remplacer le précédent. Il y a encore un niveau sur le calcul de dégâts, dans le cas d'une attaque offensive. Les attaques infligeant des dégâts n'inflige pas de dégâts fixes, les dégâts sont déterminés par les statistiques ainsi que les types en jeu, mais aussi par deux valeurs aléatoires : l'une vient déterminer les dégâts infligés dans une fourchette et une autre qui vient déterminer si l'attaque est critique, c'est-à-dire si elle va infliger deux fois plus de dégâts. En plus de ça, il reste aussi l'esquive, qui reste lier à la chance qu'un Pokémon a de ne pas subir l'attaque.
+Pour en revenir au champ des possibles, le problème d'un combat Pokémon est beaucoup trop complexe. Le nombre de possibilités accroit sur plusieurs niveaux, choisir entre utiliser une capacité ou changer de Pokémon, choisir la capacité puis choisir sa cible, et choisir le Pokémon qui viendra remplacer le précédent. Il y a encore un niveau sur le calcul de dégâts, dans le cas d'une attaque offensive. Les attaques infligeant des dégâts n'infligent pas de dégâts fixes, les dégâts sont déterminés par les statistiques ainsi que les types en jeu, mais aussi par deux valeurs aléatoires : l'une vient déterminer les dégâts infligés dans une fourchette et une autre qui vient déterminer si l'attaque est critique, c'est-à-dire si elle va infliger deux fois plus de dégâts. En plus de ça, il reste aussi l'esquive, qui reste lier à la chance qu'un Pokémon a de ne pas subir l'attaque.
 
-L'arbre de choix est très souvent laissé à la chance ce qui peut venir fausser l'apprentissage d'un ordinateur qui peut considérer une action comme n'étant pas satisfaisante dans un cas d'un jour de chance de l'adversaire ou inversement, garanti la réussite en combat alors qu'il ne s'agissait que d'une attaque lié à un jet de dé.
+L'arbre des choix est très souvent laissé à la chance, ce qui peut venir fausser l'apprentissage d'un ordinateur qui peut considérer une action comme n'étant pas satisfaisante dans un cas d'un jour de chance de l'adversaire ou inversement, garantie la réussite en combat alors qu'il ne s'agissait que d'une attaque lié à un jet de dé.
 
-L'ajout d'aléatoire dans le jeu, aussi infime qu'il soit, force à redéfinir certains critères de choix dans cette méthode.
+L'ajout de l'aléatoire dans le jeu, aussi infime qu'il soit, force à redéfinir certains critères de choix dans cette méthode.
 
 \section{Résultats}
 
-Bien que nous ne pouvons pas obtenir de résultat sur la base même d'une insuffisance matérielle, nous pouvons estimer que l'équipe est optimisé pour être la meilleure. La force d'un joueur de haut niveau ne vient pas seulement de sa prise de décision, donc son application de la stratégie, mais aussi de sa capacité à choisir dîtes stratégie.
+Bien que nous ne pouvons pas obtenir de résultat sur la base même d'une insuffisance matérielle, nous pouvons estimer que l'équipe est optimisée pour être la meilleure. La force d'un joueur de haut niveau ne vient pas seulement de sa prise de décision, donc son application de la stratégie, mais aussi de sa capacité à choisir dîtes stratégie.
 
-Dans un exemple très simple, la méta\footnote{stratégie populaire à l'instant présent dans un jeu} à ce moment dans Overwatch nommé GOATS ("GO All Tanks and Supports") est l'itération d'une ancienne méta\cite{GOAT}, la méta "Trois tank" qui consistait à former une équipe composé de trois tanks, de un DPS et de deux supports. La force de celle-ci résidait dans durabilité et survie de sa composition, permettant une production importante de dégâts sans pour autant en subir de trop. Une autre itération cette fois-ci jouait sur une composition à "Trois supports". Celle-ci échoua cependant à la réalisation que les dégâts et la durabilité avait souffert d'un troisième support. 
+Dans un exemple très simple, la méta\footnote{stratégie populaire à l'instant présent dans un jeu} en ce moment dans Overwatch nommé GOATS ("GO All Tanks and Supports") est l'itération d'une ancienne méta\cite{GOAT}, la méta "Trois tanks" qui consistait à former une équipe composée de trois tanks, d'un DPS et de deux supports. La force de celle-ci résidait dans durabilité et survie de sa composition, permettant une production importante de dégâts sans pour autant en subir de trop. Une autre itération cette fois-ci jouait sur une composition à "Trois supports". Celle-ci échoua cependant à la réalisation que les dégâts et la durabilité avaient soufferte d'un troisième support. 
 
-GOATS fit son apparition à la sortie d'un nouveau personnage qui permit cette durabilité et cette survie au sacrifice de la production massive de dommage. Cependant, elle joue non pas sur la production de dégâts mais sur l'utilisation des outils la plus efficiente : la première équipe à cours de moyen se voit être battu dans la majeur partie des cas.
+GOATS fit son apparition à la sortie d'un nouveau personnage qui permit cette durabilité et cette survie au sacrifice de la production massive de dommage. Cependant, elle joue non pas sur la production de dégâts, mais sur l'utilisation des outils la plus efficiente : la première équipe à court de moyens se voit être battue dans la majeure partie des cas.
 
-Ce qui rend cette méta intéressante dans notre cas, c'est que c'est la première stratégie de jeu ne demandant pas un certain niveau pour être prise en main. La demande en compétence est moins forte, et chaque joueur peut la jouer et devenir une menace.
+Ce qui rend cette méta intéressante dans notre cas, c'est que c'est la première stratégie de jeu ne demande pas un certain niveau pour être prise en main. La demande en compétence est moins forte, et chaque joueur peut la jouer et devenir une menace.
 
-Dans notre cas, l'important n'est donc pas de produire un joueur de haut-niveau, mais de produire une équipe de haut-niveau.
+Dans notre cas, l'important n'est donc pas de produire un joueur de haut niveau, mais de produire une équipe de haut niveau.
+

@@ -1,20 +1,20 @@
 \documentclass[main.tex]{subfiles}
 
-\chapter{Mise en application dans des vrais matchs}
+\chapter{Mise en application dans de vrais matchs}
 
-Maintenant, que nous avons notre équipe et que nous avons confirmé qu'il n'est pas possible pour le moment de réaliser une IA qui jouera cette équipe, nous allons avec des humains de niveaux différents tester ces équipes dans les conditions réelles.
+Maintenant que nous avons notre équipe et que nous avons confirmé qu'il n'est pas possible pour le moment de réaliser une IA qui jouera cette équipe, nous allons avec des humains de niveaux différents tester ces équipes dans les conditions réelles.
 
 \section{Pokémon Showdown}
 
 Les VGC ayant déjà commencé, il ne nous est pas possible d'y participer afin de déterminer la valeur concrète de nos équipes face à des joueurs réelles et dans des conditions plus favorables. Il est en revanche possible de simuler des combats dans un environnement qui nous permettrait de mettre nos équipes en situation réelle.
 
-Cette environnement s'appelle Pokémon Showdown.
+Cet environnement s'appelle Pokémon Showdown.
 
 Pokémon Showdown est un simulateur de combat Pokémon sur internet. Il propose un système de rencontres aléatoires dans un format souhaité, et il est aussi possible de se battre contre un adversaire précis.
 
 \subsection{Les spécimens}
 
-Nous avons donc trouver des spécimens qui vont aller utiliser ses équipes dans ce simulateur et qui iront jouer contre des joueurs réels mais inconnu de niveaux différent. Nous enregistrerons le plus de combat possible selon leurs disponibilités et analyseront les résultats.
+Nous avons donc trouvé des spécimens qui vont aller utiliser ses équipes dans ce simulateur et qui iront jouer contre des joueurs réels, mais inconnus de niveaux différents. Nous enregistrerons le plus de combats possible selon leurs disponibilités et analyserons les résultats.
 
 Nous définirons trois classes de spécimens :
 
@@ -22,22 +22,33 @@ Nous définirons trois classes de spécimens :
     
     \item Débutant
     
-    Un débutant est un joueur n'ayant pas ou peu de connaissances dans Pokémon. Il n'aura aucune ou alors que de vagues idées sur comment son équipe fonctionne.
+    Un débutant est un joueur n'ayant pas ou peu de connaissances dans Pokémon. Il n'aura aucune, ou que de vagues idées sur comment son équipe fonctionne.
     
     \item Intermédiaire
     
-    Un joueur intermédiaire ayant des Pokémon relatives à Pokémon et au bon déroulement d'un combat. Il connaît son équipe et sait ce qu'ils font. Il n'est cependant pas efficient dans sa prise de décision.
+    Un joueur intermédiaire ayant des Pokémon relatives à Pokémon et au bon déroulement d'un combat. Il connait son équipe et sait ce qu'ils font. Il n'est cependant pas efficient dans sa prise de décision.
     
     \item Avancé
     
-    Un joueur avancé est un joueur qui connaît ces principes de méta et qui sait les appliquer en combat. Il sait s'adapter, et prendre une décision correcte.
+    Un joueur avancé est un joueur qui connait ces principes de méta et qui sait les appliquer en combat. Il sait s'adapter, et prendre une décision correcte.
     
 \end{itemize}
 
-\section{Évaluation des résultats}
+Afin d'avoir un comparatif pour chaque classe de spécimen, nous les ferons se battre avec des équipes de leur propre création. Nous nous attendons aux résultats suivants :
 
-\subsection{Débutant}
+\begin{itemize}
+    
+    \item Les débutants vont voir une augmentation dans leur taux de combats gagnés. Nous nous basons sur leur manque d'expérience qui va influer sur leur choix de leur équipe.
+    
+    \item Les joueurs intermédiaires vont voir une augmentation dans leur taux de combats gagnés. Nous nous basons sur leur manque d'expérience qui va influer sur le choix de leur équipe. Cependant, avec leurs connaissances un peu plus poussées du jeu que les débutants, nous pouvons attendre d'eux que leur taux de réussite va augmenter de manières plus significatives.
+    
+    \item Les joueurs avancés vont voir une augmentation dans leur taux de combats gagnés. Cette fois-ci, l'outil leur servira d'assistant d'optimisation qui viendra combler les lacunes plutôt qu'agir comme une source ayant accès à plus de connaissances.
+    
+\end{itemize}
 
-\subsection{Intermédiaire}
+\section{Conclusion}
 
-\subsection{Avancé}
+Nous finissons sur un outil de génération d'équipe relativement optimisé pour aider les joueurs dans la sélection de Pokémon. Nous n'aurons pas réussi à créer un joueur de haut niveau capable de participer aux tournois officiels. Le travail de recherche et de réflexion pour en arriver là est concluant et permettra dans le futur de réaliser une solution qui pourrait à l'avenir produire une intelligence artificielle qui pourra s'entreprendre à de telles aventures.
+
+Nous finissons donc sur trois grands axes d'améliorations : finir la traduction des données pour obtenir un outil de sélection et de génération d'équipe de Pokémon dynamique et adaptable à tout moment, améliorer la sélection des Pokémon en prenant en compte plus de situations spécifiques et former une intelligence artificielle qui peut s'adapter a n'importe quelle adversaire dans n'importe quel format qui lui est présenté.
+
